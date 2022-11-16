@@ -41,7 +41,16 @@ CMSSW repo maintains a list of workflows inside [Configuration/PyReleaseValidati
 ### Potential Phase2 FastSim Command
 cmsDriver.py TTbar_14TeV_TuneCP5_cfi --fast **--conditions auto:phase2_realistic_T21** -n 2 **--era Phase2C17I13M9** --beamspot HLLHC14TeV **--geometry Extended2026D88** --datatier GEN-SIM-RECO,DQMIO --eventcontent RECOSIM,DQM -s GEN,SIM,RECOBEFMIX,DIGI:pdigi_valid,DIGI2RAW,RECO:reconstruction_trackingOnly,VALIDATION:@trackingOnlyValidation,DQM:@trackingOnlyDQM --python_filename fastsim_phase2_12X.py --fileout fastsim_phase2_12X.root --pileup=NoPileUp --no_exec
 
-
+## How to checkout my branch at CMSSW
+```
+cmsrel CMSSW_12_4_10_patch1
+cd CMSSW_12_4_10_patch1/src/
+cmsenv
+git cms-init
+git checkout -b phase2fastsimpixel
+git cms-merge-topic alaha999:phase2fastsim_12X
+scram b -j32
+```
 ## Error Log
 
 ## Change Log
